@@ -1,12 +1,26 @@
 <template>
-  <header>
+  <header class="row justify-content-between">
+      <div class="col-1 justify-content-center">
+
       <img src="../assets/logo.png" alt="">
+
+      </div>
+      <div class="col-4 px-4 ">
+          <Select />
+
+
+      </div>
   </header>
 </template>
 
 <script>
+import Select from "./Select.vue";
+
 export default {
     name: 'Header',
+    components: {
+        Select,
+    }
 }
 </script>
 
@@ -19,9 +33,7 @@ header{
     img{
         height: 40px;
         width: 40px;
-        position: absolute;
-        left: 5px;
-        top: 5px
+        
     }
 }
 </style>

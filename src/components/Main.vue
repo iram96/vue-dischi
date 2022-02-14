@@ -1,8 +1,11 @@
 <template>
 <main>
-    <div class="container row justify-content-around">
+    <div class="container row ">
         
-            <SongCard v-for='disc in discsList' :key='disc.title' :disc='disc' />
+            
+
+            <SongCard  />
+           
 
         
 
@@ -12,7 +15,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 import SongCard from './SongCard.vue'
 
 export default {
@@ -20,25 +23,10 @@ export default {
     components: {
         SongCard,
     },
-      data(){
-      return {
-        discsList: []
+    props: ['disc'],
+    
   
-      }
-    },
-  methods: {
-    getDiskImg(){
-      axios.get('https://flynn.boolean.careers/exercises/api/array/music').then( res => {
-        this.discsList = res.data.response;
-
-      })
-    }
-  },
-  mounted() {
-    this.getDiskImg()
-    console.log(this.discsList)
-  }
-
+  
 }
 </script>
 
@@ -48,7 +36,8 @@ main{
     height: 100vh;
     .container{
         max-width: 70%;
-        margin: 0 auto
+        margin: 0 auto;
+        
 
     }
 }
